@@ -22,7 +22,12 @@ exports.show = function(req, res) {
 
 // Creates a new device in the DB.
 exports.create = function(req, res) {
-  Device.create(req.body, function(err, device) {
+  Device.create({
+    name: req.body.name,
+    type: req.body.type,
+    config: {},
+    userId: req.user._id
+  }, function(err, device) {
     if(err) { return handleError(res, err); }
     return res.json(201, device);
   });
@@ -52,6 +57,21 @@ exports.destroy = function(req, res) {
       return res.send(204);
     });
   });
+};
+
+exports.getUserDevices = function(req, res) {
+  Device
+   .find()
+   .populate('userId')
+   .exec(function(err, devices) {
+      if (err) { 
+        handleError(res, err);
+      }
+      var owned = _.filter(devices, function(d) { 
+        return d.userId._id.toString() === req.user._id.toString(); 
+      });
+      res.json(200, owned);
+   });
 };
 
 function handleError(res, err) {

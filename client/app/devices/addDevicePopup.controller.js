@@ -3,7 +3,9 @@
 angular.module('spcApp')
   .controller('DevicePopupCtrl', function ($scope, $modalInstance) {
 
-  	$scope.newDevice = {};
+  	$scope.newDevice = {
+      type: 'pets'
+    };
 
   	$scope.create = function() {
   		if ($scope.newDevice.name !== undefined) {

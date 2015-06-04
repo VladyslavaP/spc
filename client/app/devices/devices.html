@@ -14,7 +14,7 @@
 
 <div id='devices-container'>
 
-	<div id='dev-container'>
+	<div id='dev-container' ng-repeat="device in devices">
 
 	    <div id='dev-img'>
 	      <img src="assets/images/autokorm.png" id='icon'></img>
@@ -22,7 +22,7 @@
 
 	    <div id='dev-info'>
 	      <h1>
-	        Device name
+	        {{device.name}}
 	      </h1>
 	      <button id='dev-button'><span class='fontawesome-cogs b-icon'></span>Config</button><br/>
 	      <button id='dev-button'><span class='fontawesome-th-list b-icon'></span>Get stats</button>

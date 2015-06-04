@@ -1,7 +1,14 @@
 'use strict';
 
 angular.module('spcApp')
-  .controller('DevicesCtrl', function ($scope, $modal) {
+  .controller('DevicesCtrl', function ($scope, $modal, deviceService) {
+
+    $scope.devices = [];
+
+    deviceService.get(function(data) {
+        console.log(data);
+        $scope.devices = data;
+    });
 
     $scope.addDevice = function() {
         var modalInstance = $modal.open({
@@ -16,8 +23,8 @@ angular.module('spcApp')
 			            '		<p>Device name: </p>',
 			            '		<input placeholder="Device name" ng-model="newDevice.name"/>',
                         '       <p>Device for: </p>',
-                        '       <select>',
-                        '           <option value="pets">Pets</option>',
+                        '       <select ng-model="newDevice.type">',
+                        '           <option value="pets" selected>Pets</option>',
                         '           <option value="fishes">Fishes</option>',
                         '           <option value="plants">Plants</option>',
                         '       </select>',
@@ -33,7 +40,9 @@ angular.module('spcApp')
             size: 'sm',
         });
         modalInstance.result.then(function (newDevice) {
-            console.log(newDevice);
+            deviceService.create(newDevice, function(created) {
+                $scope.devices.push(created);
+            });           
         }, function () {
             console.log('I FAILED YOU MASTER');
         });
