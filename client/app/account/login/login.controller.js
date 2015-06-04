@@ -14,8 +14,8 @@ angular.module('spcApp')
           password: $scope.user.password
         })
         .then( function() {
-          // Logged in, redirect to home
-          $location.path('/');
+          // Logged in, redirect to devices
+          $location.path('/devices');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

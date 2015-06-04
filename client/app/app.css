@@ -1,5 +1,7 @@
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
 
+@import url(http://meyerweb.com/eric/tools/css/reset/reset.css);
+
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;
 }
@@ -23,6 +25,7 @@ button {
   color: #eee;
   font-weight: bold;
   text-transform: uppercase;
+  font-family: 'FontAwesome', sans-serif;
 }
 
 button:hover {

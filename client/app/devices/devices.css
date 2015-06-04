@@ -1,0 +1,74 @@
+@import url(http://fonts.googleapis.com/css?family=Gabriela);
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+#menu {
+  border: solid 1px #eee;
+  -webkit-border-radius: 5px;
+  background-color: rgba(182, 184, 186, 0.2);
+  position: fixed; 
+  top: 40%; 
+  right:0%;
+  width: 210px;
+  padding-bottom: 5px;
+}
+
+#menu-container {
+  width: 200px;
+  float: right;
+}
+
+.b-icon {
+  float: left;
+}
+
+#menu-button {
+  border-color: #eee;
+  margin: 5px 5px 0px 0px;
+  width: 195px;
+  height: 50px;
+  opacity: 1.0;
+}
+
+#dev-capture {
+  font-family: 'Gabriela', serif;
+  font-size: 60px; 
+  color: #eee; 
+  margin: 20px 0px 0px 40px;
+}
+
+#devices-container {
+  float: left; 
+  width: 82%; 
+  margin-top: 20px;
+  font-family: 'Gabriela', serif;
+  color: #eee;
+}
+
+#dev-container {
+  float: left; 
+  width: 550px; 
+  height: 270px;
+}
+
+#dev-img {
+  float: left; 
+  height: 250px; 
+  width: 250px;
+}
+
+#dev-info {
+  float: right; 
+  width: 250px; 
+  word-wrap: break-word;   
+  font-size: 20px; 
+}
+
+#dev-button {
+  border: none;
+  margin: 10px 0px 0px 0px;
+  width: 150px;
+  height: 30px;
+}
