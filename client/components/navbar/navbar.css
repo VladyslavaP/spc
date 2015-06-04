@@ -1,0 +1,21 @@
+#login-reg-button {
+  float: right;
+  margin: 105px 5px 0px 0px;
+  border: none;
+  width: 90px;
+  height: 30px;
+}
+
+#icon {
+  float: left; 
+  margin-left: 40px;
+}
+
+#header{
+  margin-left: 120px;
+}
+
+#sign {
+  color: #eee;
+  text-decoration: none;
+}
