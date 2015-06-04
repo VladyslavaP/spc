@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://root:root@ds041992.mongolab.com:41992/spc-data'
   },
 
-  seedDB: true
+  seedDB: false
 };
