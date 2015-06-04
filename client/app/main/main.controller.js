@@ -19,4 +19,21 @@ angular.module('spcApp')
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
     };
+
+    $scope.interval = 5000;
+
+    $scope.slides = [
+      {
+        image: 'assets/images/slide1.png'
+      },
+      {
+        image: 'assets/images/slide2.png'
+      },
+      {
+        image: 'assets/images/slide3.png'
+      },      
+      {
+        image: 'assets/images/slide4.png'
+      }
+    ];
   });

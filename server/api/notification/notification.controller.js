@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Notification = require('./notification.model');
+var Device = require('../device/device.model');
 
 // Get list of notifications
 exports.index = function(req, res) {
@@ -22,12 +23,7 @@ exports.show = function(req, res) {
 
 // Creates a new notification in the DB.
 exports.create = function(req, res) {
-  var notification = new Notification({
-    deviceId : mongoose.Types.ObjectId(req.body.deviceId),
-    message : req.body.message,
-    time : req.body.time,
-  });
-  notification.save(function(err) {
+  Notification.create(req.body, function(err, notification) {
     if(err) { return handleError(res, err); }
     return res.json(201, notification);
   });
@@ -57,6 +53,38 @@ exports.destroy = function(req, res) {
       return res.send(204);
     });
   });
+};
+
+exports.getWeekNotificationsForUser = function(req, res) {
+  Device.find(
+    { userID: req.user._id},
+    function(err, devices) {
+      if(err) {
+        handleError(res, err);
+      } else {
+        var devIds = _.pluck(devices, '_id');
+        var dateRange = new Date();
+        dateRange.setDate(dateRange.getDate() - 7);
+        Notification
+          .find({ 
+            time : { $gt : dateRange }
+          })
+          .where('deviceId')
+          .in(devIds)
+          .sort('-date')
+          .exec(function (err, notifications) {
+            if(err) {
+              handleError(res, err);
+            } else {
+              var grouped = _.groupBy(notifications, function(n) {
+                return n.deviceId;
+            });
+            res.status(200).json(grouped);
+          }
+        });
+      }
+    }
+  );
 };
 
 function handleError(res, err) {

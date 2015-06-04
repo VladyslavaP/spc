@@ -1,8 +1,9 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<ul class='bxslider'>
-  <li><img src="assets/images/slide1.png" /></li>
-  <li><img src="assets/images/slide2.png" /></li>
-  <li><img src="assets/images/slide3.png" /></li>
-  <li><img src="assets/images/slide4.png" /></li>
-</ul>
+<div id='slider'>
+  <carousel interval="interval">
+    <slide ng-repeat="slide in slides" active="slide.active">
+      <img ng-src="{{slide.image}}" id='img'>
+    </slide>
+  </carousel>
+</div>

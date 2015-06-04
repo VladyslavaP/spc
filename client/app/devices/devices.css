@@ -102,6 +102,11 @@
   border: 2px solid #eee;
 }
 
+#add-device-body select {
+  margin: 10px 0 10px 20px;
+  border: 2px solid #eee;
+}
+
 #add-device-footer button {
   border: none;
   margin: 0px 0px 10px 30px;

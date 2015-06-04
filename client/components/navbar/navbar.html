@@ -7,6 +7,9 @@
   <button id='login-reg-button' ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}">
     <a href="/login" id='sign'>Sign in</a>
   </button>
+  <button id='login-reg-button' ng-show="isLoggedIn()" ng-class="{active: isActive('/devices')}">
+    <a href="/devices" id='sign'>My devices</a>
+  </button>
   <button id='login-reg-button' ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
     <a href="" ng-click="logout()" id='sign'>Sign out</a>
   </button>
