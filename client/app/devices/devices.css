@@ -59,7 +59,8 @@
   width: 250px;
 }
 
-#dev-info {
+#dev-info, #add-device-header {
+  font-family: 'Gabriela', serif;
   float: right; 
   width: 250px; 
   word-wrap: break-word;   
@@ -71,4 +72,39 @@
   margin: 10px 0px 0px 0px;
   width: 150px;
   height: 30px;
+}
+
+#popup {
+}
+
+#add-device-header{
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+#add-device-body {
+  padding-top: 50px;
+  font-family: 'Gabriela', serif;
+  font-size: 15px; 
+  margin-bottom: 20px;
+}
+
+#add-device-body p {
+  display: inline;
+  color: #000;
+  padding-left: 5px;
+}
+
+#add-device-body input {
+  display: inline;
+  color: #000;
+  padding-left: 15px;
+  border: 2px solid #eee;
+}
+
+#add-device-footer button {
+  border: none;
+  margin: 0px 0px 10px 30px;
+  width: 100px;
+  height: 25px;
 }
