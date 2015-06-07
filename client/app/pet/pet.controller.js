@@ -22,25 +22,23 @@ angular.module('spcApp')
   	});
 
 
+
+
 	$(document).ready( function() {
 		$('#edit-button').click(function(){
 			$('#dev-name-input').prop('readonly', false);
-			$('#config-block input').prop('readonly', false);
+			$('#config-container input').prop('readonly', false);
 			$('#dev-name-input').css('border', '2px ridge #b6b8ba');
-			$('#config-block input').css('border', '2px ridge #b6b8ba');
-			$('#picture-button').css('font-size', '14px');			
-			$('#picture-button').css('display', 'block');
+			$('#config-container input').css('border', '2px ridge #b6b8ba');
 		});
 	});
 
 	$scope.save = function() {
 		console.log($);
 		$('#dev-name-input').prop('readonly', true);
-		$('#config-block input').prop('readonly', true);
+		$('#config-container  input').prop('readonly', true);
 		$('#dev-name-input').css('border', 'none');
-		$('#config-block input').css('border', 'none');		
-		$('#picture-button').css('display', 'none');
-
+		$('#config-container input').css('border', 'none');	
 
   		deviceService.update($scope.device, function() {
   			console.log('success');

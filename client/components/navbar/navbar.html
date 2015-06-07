@@ -1,16 +1,19 @@
 <header ng-controller="NavbarCtrl">
   <a href="/"><img src="assets/images/1.png" id='icon'></img></a>
   <a href="/"><img src="assets/images/2.png" id='header'></img></a>
-  <button id='login-reg-button' ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}">
+  <button id='nav-buttons' ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}">
     <a href="/signup" id='sign'>Sign up</a>
   </button>
-  <button id='login-reg-button' ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}">
+  <button id='nav-buttons' ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}">
     <a href="/login" id='sign'>Sign in</a>
   </button>
-  <button id='login-reg-button' ng-show="isLoggedIn()" ng-class="{active: isActive('/devices')}">
-    <a href="/devices" id='sign'>My devices</a>
-  </button>
-  <button id='login-reg-button' ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
+  <button id='nav-buttons' ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
     <a href="" ng-click="logout()" id='sign'>Sign out</a>
+  </button>
+  <button id='nav-buttons' ng-show="isLoggedIn()" ng-class="{active: isActive('/gellary')}">
+    <a href="/gellary" id='sign'>Gallery</a>
+  </button>
+  <button id='nav-buttons' ng-show="isLoggedIn()" ng-class="{active: isActive('/devices')}">
+    <a href="/devices" id='sign'>Devices</a>
   </button>
 </header> 

@@ -6,10 +6,11 @@ var controller = require('./notification.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
-router.get('/:id', controller.show);
+router.get('/id/:id', controller.show);
 router.post('/', controller.create);
-router.put('/:id', controller.update);
-router.patch('/:id', controller.update);
-router.delete('/:id', controller.destroy);
+router.put('/id/:id', controller.update);
+router.patch('/id/:id', controller.update);
+router.delete('/id/:id', controller.destroy);
+router.get('/unread/:deviceId', controller.getUnreadForDevice);
 
 module.exports = router;

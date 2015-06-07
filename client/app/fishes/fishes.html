@@ -18,9 +18,7 @@
     <p>Food left (gm):&nbsp;&nbsp;</p>
     <input type="text" readonly="true" value="{{device.config.foodModule.currentFoodAmount}}" id="fl"></input>
     <br/>
-    <p>Water left (gm):</p>
-    <input type="text" value="{{device.config.waterModule.currentWaterAmount}}" readonly="true" id="wl"></input>
-
+    <br/>
 
     <button id='edit-button' type="button"><span class='fontawesome-edit b-icon'></span>Edit</button><br/>
     <button id='save-button' ng-click="save()"><span class='fontawesome-save b-icon'></span>Save</button>
@@ -33,21 +31,7 @@
     <h2>Daily ration (gm):</h2>
     <input type="number" readonly="true" ng-model="device.config.foodModule.foodDailyRation"></input>
     <br/>
-    <h2>Minimal food amount in plate (gm):</h2>
-    <input type="number" ng-model="device.config.foodModule.foodAmountThreshold" readonly="true"></input>
-    <br/>
     <h2>Minimal food amount in device (gm):</h2>
     <input type="number" ng-model="device.config.foodModule.minimalFoodAmount" readonly="true"></input>
-    <br/>
-    <h2>Time to open frigde:</h2>
-    <input type="time" ng-model="device.config.fridgeModule.fridgeOpenTime" readonly="true"></input>
-    <br/>
-
-    <h1>Water</h1>          
-    <h2>Minimal water amount in plate (gm):</h2>
-    <input type="number" ng-model="device.config.waterModule.waterAmountThreshold" readonly="true"></input>
-    <br/>
-    <h2>Minimal water in device (gm):</h2>
-    <input type="number" ng-model="device.config.waterModule.minimalWaterAmount" readonly="true"></input>
 </div> 
 </div> 

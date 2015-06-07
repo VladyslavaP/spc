@@ -1,32 +1,33 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div id='menu'>
-	<div id='menu-container'>
-		<button id='menu-button' ng-click="addDevice()"><span class='fontawesome-plus b-icon'></span>Add device</button>
-        <button id='menu-button'><span class='fontawesome-picture b-icon'></span>Gallery</button>
-        <button id='menu-button'><span class='fontawesome-bell-alt b-icon'></span>Notifications</button>
-    </div>
-</div>
-
 <div id='dev-capture'>
+	<button id='add-device-button' ng-click="addDevice()"><span class='fontawesome-plus b-icon'></span>Add device</button>
   <h1> Your devices:</h1>
+  
 </div>  
 
-<div id='devices-container'>
+<div id='devices-container' >
 
-	<div id='dev-container' ng-repeat="device in devices">
+	<div ng-repeat="device in devices" class="col-md-6">
 
-	    <div id='dev-img'>
-	      <img src="assets/images/autokorm.png" id='icon'></img>
+	    <div id='dev-img'  class="col-md-6">
+	      <img ng-show="device.type === 'pets'" src="assets/images/autokorm.png" ></img>
+	      <img ng-show="device.type === 'plants'" src="assets/images/plant.png" ></img>
+	      <img ng-show="device.type === 'fishes'" src="assets/images/fishes.png" ></img>
 	    </div>
 
-	    <div id='dev-info'>
+	    <div id='dev-info' class="col-md-6">
 	      <h1>
 	        {{device.name}}
 	      </h1>
 	      <button id='dev-button' ng-click="goToConfig(device)"><span class='fontawesome-cogs b-icon'></span>Config</button><br/>
 	      <button id='dev-button'><span class='fontawesome-th-list b-icon'></span>Get stats</button>
+	      <br/>
+	      <button id='dev-button' ng-click="goToNotifications(device)"><span class='fontawesome-bell-alt b-icon'></span>Notifications</button>
+	      <br/>
+	      <button id='dev-button' ng-click="delete(device)"><span class='fontawesome-remove b-icon'></span>Delete</button>
 	    </div>
   	</div> 
+
 
 </div>  

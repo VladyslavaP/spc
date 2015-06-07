@@ -6,6 +6,10 @@ var mongoose = require('mongoose'),
 var NotificationSchema = new Schema({
 	deviceId: Schema.Types.ObjectId,
 	message: String,
+	viewed: {
+		type: Boolean,
+		default: false
+	},
 	time: Date
 });
 

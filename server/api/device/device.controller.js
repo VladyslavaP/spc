@@ -35,6 +35,7 @@ exports.create = function(req, res) {
 
 // Updates an existing device in the DB.
 exports.update = function(req, res) {
+  console.log(req.body);
   Device.findById(req.body._id, function (err, device) {
     if (err) { return handleError(res, err); }
     if(!device) { return res.send(404); }

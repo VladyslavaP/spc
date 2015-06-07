@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var mongoose = require('mongoose');
 var Notification = require('./notification.model');
 var Device = require('../device/device.model');
 
@@ -55,7 +56,23 @@ exports.destroy = function(req, res) {
   });
 };
 
-exports.getWeekNotificationsForUser = function(req, res) {
+exports.getUnreadForDevice = function(req, res) {
+  Notification
+    .find({deviceId: mongoose.Types.ObjectId(req.params.deviceId)})
+    .where('viewed')
+    .equals(false)
+    .sort('-time')
+    .limit(13)
+    .exec(function(err, notifications) {
+      if(err) {
+        handleError(res, err);
+      } else {
+        res.json(200, notifications);
+      }
+    }); 
+};
+
+exports.getWeekForUser = function(req, res) {
   Device.find(
     { userID: req.user._id},
     function(err, devices) {

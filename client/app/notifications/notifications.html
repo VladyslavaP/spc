@@ -1,0 +1,15 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div>
+	<table>
+		<tr>
+			<th>TIME</th>
+			<th>MESSAGE</th>
+		</tr>
+		<tr ng-repeat="notification in notofications">
+			<td>{{notification.time}}</td>
+			<td>{{notification.message}</td>
+			<td nh-show=""><button>Take photo</button></td>
+		</tr>	
+	</table>	
+</div>	

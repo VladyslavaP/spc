@@ -13,6 +13,15 @@ angular.module('spcApp')
         $state.go(device.type, {deviceId: device._id});
     };
 
+    $scope.goToNotifications = function(device) {
+        $state.go('notifications', {deviceId: device._id});
+    };
+
+    $scope.delete = function(device) {
+        deviceService.delete(device._id, function() {
+            console.log('how to reload ?????');
+        });
+    };
 
     $scope.addDevice = function() {
         var modalInstance = $modal.open({

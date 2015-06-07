@@ -37,4 +37,12 @@ angular.module('spcApp')
       })
     }; 
 
+    this.delete = function(deviceId, callback) {
+      $http
+        .delete('/api/devices/id/'+deviceId)
+        .success(function(data) {
+          callback(data);
+        });
+    };
+
   });

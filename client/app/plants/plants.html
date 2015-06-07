@@ -1,0 +1,54 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+
+
+
+<div id='device' >
+
+
+  <div id='dev-img-pet' class="col-md-3">
+    <img src="assets/images/autokorm.png"></img>
+  </div>
+
+  <div id='dev-info-block' class="col-md-3">
+    <h1>Device name:</h1>
+    <input type="text" value="{{device.name}}" readonly="true" id="dev-name-input" ng-model="device.name"></input>
+    <br/>
+    <br/>
+    <p>Spray left (gm):&nbsp;&nbsp;</p>
+    <input type="text" readonly="true" value="{{device.config.sprayingModule.currentSprayingMaterialAmount}}" id="fl"></input>
+    <br/>
+    <p>Water left (gm):</p>
+    <input type="text" value="{{device.config.irrigationModule.currentWaterAmount}}" readonly="true" id="wl"></input>
+
+
+    <button id='edit-button' type="button"><span class='fontawesome-edit b-icon'></span>Edit</button><br/>
+    <button id='save-button' ng-click="save()"><span class='fontawesome-save b-icon'></span>Save</button>
+  </div>  
+ 
+
+
+<div id='config-container' class="col-md-6">    
+    <h1>Spray</h1>
+    <h2>Spray Frequency (per N hrs):</h2>
+    <input type="number" readonly="true" ng-model="device.config.sprayingModule.sprayFrequency"></input>
+    <br/>
+    <h2>Spray Amount (per N hrs):</h2>
+    <input type="number" ng-model="device.config.sprayingModule.sprayAmount" readonly="true"></input>
+    <br/>
+    <h1>Irrigation</h1>
+    <h2>Irrigation Frequency (per N hrs):</h2>
+    <input type="number" ng-model="device.config.irrigationModule.irrigationFrequency" readonly="true"></input>
+    <br/>
+    <h2>Water Portion (gm):</h2>
+    <input type="number" ng-model="device.config.irrigationModule.waterPortion" readonly="true"></input>
+    <br/>
+
+    <h1>Water</h1>          
+    <h2>lighting Frequency (per N hrs):</h2>
+    <input type="number" ng-model="device.config.lightingModule.lightingFrequency" readonly="true"></input>
+    <br/>
+    <h2>Lighting Duration (minutes):</h2>
+    <input type="number" ng-model="device.config.lightingModule.lightingDuration" readonly="true"></input>
+</div> 
+</div> 

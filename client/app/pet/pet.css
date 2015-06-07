@@ -8,46 +8,31 @@
   float: left;
 }
 
-#devices-container {
-  float: left; 
-  width: 82%; 
+#device {
   margin-top: 20px;
   font-family: 'Gabriela', serif;
   color: #eee;
-}
+ } 
 
-#dev-img-pet {
-  float: left; 
-  height: 250px; 
-  width: 250px;
-  margin-left: 40px;
-}
 
 #dev-info-block {
-  float: left; 
-  width: 500px; 
-  margin: 10px 0 0 20px; 
+  margin: 0px 20px 30px 10px; 
   font-size: 22px;
+  width: 301px;
 }
 
-#dev-info-block input, #config-block input {
+#dev-info-block input, #config-container input {
   font-size: 24px;  
   background: #6a6a6c;
   color: #000;
 }
 
+#config-container input, #fl, #wl {
+  width: 100px;
+}
+
 #dev-info-block p {
   display: inline;
-}
-
-#picture-button {
-  margin-top: 50px; 
-  display: none;
-}
-
-#button-block {
-  float: right; 
-  margin: 70px 120px 0 0;
 }
 
 #edit-button, #save-button {
@@ -57,62 +42,11 @@
   height: 30px;
 }
 
-#config-block {
-  float: left; 
-  width: 55%; 
-  margin-left: 40px;
-}
-
-#config-block h1 {
+#config-container h1 {
   font-size: 22px; 
   text-decoration: underline;
 }
 
-#config-block h2 {
+#config-container h2 {
   display: inline;
-}
-
-#notification-block {
-  float:left; 
-  width: 40%;
-}
-
-#notification-block h1 {
-  font-size: 22px; 
-  text-decoration: underline;
-}
-
-#notif-save-button {
-  border: none;
-  margin-left: 20px;
-  width: 100px;
-  height: 25px;
-}
-
-#menu {
-  border: solid 1px #eee;
-  -webkit-border-radius: 5px;
-  background-color: rgba(182, 184, 186, 0.2);
-  position: fixed; 
-  top: 40%; 
-  right:0%;
-  width: 210px;
-  padding-bottom: 5px;
-}
-
-#menu-container {
-  width: 200px;
-  float: right;
-}
-
-.b-icon {
-  float: left;
-}
-
-#menu-button {
-  border-color: #eee;
-  margin: 5px 5px 0px 0px;
-  width: 195px;
-  height: 50px;
-  opacity: 1.0;
 }

@@ -10,7 +10,37 @@ var DeviceSchema = new Schema({
   	ref: 'User'
   },
   type: String,
-  config: Schema.Types.Mixed
+  config: {
+  	waterModule: {
+  		currentWaterAmount : {type: Number, default: 1000},
+		minimalWaterAmount : Number, 
+		waterAmountThreshold : Number
+  	},
+  	foodModule: {
+  		currentFoodAmount : {type: Number, default: 1000},
+			minimalFoodAmount : Number, 
+			foodAmountThreshold : Number,
+			foodDailyRation : Number
+  	},
+  	fridgeModule: {
+  		fridgeOpenTime : Date
+  	},
+  	irrigationModule: {
+  		currentWaterAmount: {type: Number, default: 1000},
+			irrigationFrequency : Number, 
+			waterPortion : Number
+  	},
+  	lightingModule : {
+			lightingFrequency : Number, 
+			lightingDuration : Number
+		},
+
+	sprayingModule : {
+			currentSprayingMaterialAmount : {type: Number, default: 1000},
+			sprayFrequency : Number, 
+						sprayAmount : Number
+  	}
+	}
 });
 
 module.exports = mongoose.model('Device', DeviceSchema);
