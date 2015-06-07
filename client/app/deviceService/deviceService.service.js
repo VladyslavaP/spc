@@ -28,10 +28,13 @@ angular.module('spcApp')
 
     this.update = function(device, callback) {
       $http
-        .put('/api/devices/id/'+device._id, device)
+        .post('/api/devices/update/', device)
         .success(function(data) {
           callback(data);
-        });
+        })
+      .success(function() {
+        console.log('haha hoho ololo');
+      })
     }; 
 
   });

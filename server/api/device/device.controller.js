@@ -35,30 +35,16 @@ exports.create = function(req, res) {
 
 // Updates an existing device in the DB.
 exports.update = function(req, res) {
-  if(req.body._id) { delete req.body._id; }
-  Device.findById(req.params.id, function (err, device) {
+  Device.findById(req.body._id, function (err, device) {
     if (err) { return handleError(res, err); }
     if(!device) { return res.send(404); }
-    Device.findByIdAndUpdate(
-      req.body._id,
-      {
-       $set: {
-        name: req.body.name,
-        config: req.body.config
-       }
-      },
-      function(err) {
-       if (err) return handleError(res, err);
-       return res.json(200, device);
-      }
-    );
-  /*  var updated = _.merge(device, req.body);
-    updated.save(function (err) {
-      console.log(updated);
-      console.log(device);
+
+    device.name = req.body.name;
+    device.config = req.body.config;
+    device.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, device);
-    });*/
+    });
   });
 };
 

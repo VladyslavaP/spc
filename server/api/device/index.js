@@ -10,7 +10,7 @@ router.get('/', controller.index);
 router.get('/id/:id', controller.show);
 router.post('/', auth.isAuthenticated(), controller.create);
 router.put('/id/:id', controller.update);
-router.patch('/id/:id', controller.update);
+router.post('/update/', controller.update);
 router.delete('/id/:id', controller.destroy);
 router.get('/user', auth.isAuthenticated(), controller.getUserDevices);
 

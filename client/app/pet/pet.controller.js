@@ -34,12 +34,12 @@ angular.module('spcApp')
 	});
 
 	$scope.save = function() {
-		
-		$('dev-name-input').prop('readonly', true);
-		$('config-block input').prop('readonly', true);
-		$('dev-name-input').css('border', 'none');
-		$('config-block input').css('border', 'none');		
-		$('picture-button').css('display', 'none');
+		console.log($);
+		$('#dev-name-input').prop('readonly', true);
+		$('#config-block input').prop('readonly', true);
+		$('#dev-name-input').css('border', 'none');
+		$('#config-block input').css('border', 'none');		
+		$('#picture-button').css('display', 'none');
 
 
   		deviceService.update($scope.device, function() {
