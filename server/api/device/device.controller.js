@@ -39,11 +39,26 @@ exports.update = function(req, res) {
   Device.findById(req.params.id, function (err, device) {
     if (err) { return handleError(res, err); }
     if(!device) { return res.send(404); }
-    var updated = _.merge(device, req.body);
+    Device.findByIdAndUpdate(
+      req.body._id,
+      {
+       $set: {
+        name: req.body.name,
+        config: req.body.config
+       }
+      },
+      function(err) {
+       if (err) return handleError(res, err);
+       return res.json(200, device);
+      }
+    );
+  /*  var updated = _.merge(device, req.body);
     updated.save(function (err) {
+      console.log(updated);
+      console.log(device);
       if (err) { return handleError(res, err); }
       return res.json(200, device);
-    });
+    });*/
   });
 };
 

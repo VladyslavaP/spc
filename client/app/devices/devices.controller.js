@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('spcApp')
-  .controller('DevicesCtrl', function ($scope, $modal, deviceService) {
+  .controller('DevicesCtrl', function ($scope, $modal, deviceService, $state) {
 
     $scope.devices = [];
 
     deviceService.get(function(data) {
-        console.log(data);
         $scope.devices = data;
     });
+
+    $scope.goToConfig = function(device) {
+        $state.go(device.type, {deviceId: device._id});
+    };
+
 
     $scope.addDevice = function() {
         var modalInstance = $modal.open({
@@ -44,7 +48,7 @@ angular.module('spcApp')
                 $scope.devices.push(created);
             });           
         }, function () {
-            console.log('I FAILED YOU MASTER');
+            console.log('add dev fail');
         });
     };
 

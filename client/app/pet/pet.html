@@ -1,0 +1,84 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div id='menu'>
+  <div id='menu-container'>
+    <button id='menu-button'><span class='fontawesome-plus b-icon'></span>Add device</button>
+    <button id='menu-button'><span class='fontawesome-picture b-icon'></span>Gallery</button>
+    <button id='menu-button'><span class='fontawesome-bell-alt b-icon'></span>Notifications</button>
+  </div>
+</div>
+
+<div id='devices-container'>
+  <form>
+        <div id='dev-img-pet'>
+          <img src="assets/images/autokorm.png"></img>
+        </div>
+
+        <div id='dev-info-block'>
+          <h1>Device name:</h1>
+          <input type="text" value="{{device.name}}" readonly="true" id="dev-name-input" ng-model="device.name"></input>
+          <br/>
+          <br/>
+          <p>Food left (gm):&nbsp;&nbsp;</p>
+          <input type="text" readonly="true" value="{{device.config.foodModule.currentFoodAmount}}"></input>
+          <br/>
+          <p>Water left (gm):</p>
+          <input type="text" value="{{device.config.waterModule.currentWaterAmount}}" readonly="true"></input>
+          <input id='picture-button' type="file"></input>
+        </div>  
+
+        <div id='button-block'>
+          <button id='edit-button' type="button"><span class='fontawesome-edit b-icon'></span>Edit</button><br/>
+          <button id='save-button' ng-click="save()"><span class='fontawesome-save b-icon'></span>Save</button>
+        </div>  
+     
+    </div>
+
+    <div id='devices-container' style="margin-bottom: 20px;">
+      <div id='config-block'>
+        
+        <h1>Food</h1>
+        <h2>Daily ration (gm):</h2>
+        <input type="text" readonly="true" ng-model="device.config.foodModule.foodDailyRation"></input>
+        <br/>
+        <h2>Minimal food amount in plate (gm):</h2>
+        <input type="text" ng-model="device.config.foodModule.foodAmountThreshold" readonly="true"></input>
+        <br/>
+        <h2>Minimal food amount in device (gm):</h2>
+        <input type="text" ng-model="device.config.foodModule.minimalFoodAmount" readonly="true" pattern="[1-9](\d)*"></input>
+        <br/>
+        <h2>Time to open frigde:</h2>
+        <input type="time" ng-model="device.config.fridgeModule.fridgeOpenTime" readonly="true"></input>
+        <br/>
+        <br/>
+        <h1>Water</h1>          
+        <h2>Minimal water amount in plate (gm):</h2>
+        <input type="text" ng-model="device.config.waterModule.waterAmountThreshold" readonly="true"></input>
+        <br/>
+        <h2>Minimal water in device (gm):</h2>
+        <input type="text" ng-model="device.config.waterModule.minimalWaterAmount" readonly="true"></input>
+  </form>
+      </div>  
+   
+      <div id='notification-block'>
+        <h1>Choose notifications:</h1>
+        <br/>
+        <form>
+          <input type="checkbox" value="animalStartsEating">Animal start eating</input>
+          <br/>
+          <br/>
+          <input type="checkbox" value="animalDoneEating">Statistics</input>
+          <br/>
+          <br/>
+          <input type="checkbox" value="noFoodLeft">No food left</input>
+          <br/>
+          <br/>
+          <input type="checkbox" value="noWaterLeft">No water left</input>
+          <br/>
+          <br/> 
+          <button type="submit" id='notif-save-button'><span class='fontawesome-save b-icon'></span>Save</button>
+        </form>
+        
+      </div>  
+
+    </div> 
