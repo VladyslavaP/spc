@@ -49,6 +49,13 @@ exports.update = function(req, res) {
   });
 };
 
+exports.updateFromString = function(req, res) {
+  var hoho = JSON.parse(req.body.obj);
+  console.log(req.body);
+  console.log(hoho);
+  res.json(200, hoho);
+}
+
 // Deletes a device from the DB.
 exports.destroy = function(req, res) {
   Device.findById(req.params.id, function (err, device) {
