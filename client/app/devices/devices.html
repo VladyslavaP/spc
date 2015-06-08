@@ -8,7 +8,7 @@
 
 <div id='devices-container' >
 
-	<div ng-repeat="device in devices" class="col-md-6">
+	<div ng-repeat="(i, device) in devices" class="col-md-6">
 
 	    <div id='dev-img'  class="col-md-6">
 	      <img ng-show="device.type === 'pets'" src="assets/images/autokorm.png" ></img>
@@ -25,7 +25,7 @@
 	      <br/>
 	      <button id='dev-button' ng-click="goToNotifications(device)"><span class='fontawesome-bell-alt b-icon'></span>Notifications</button>
 	      <br/>
-	      <button id='dev-button' ng-click="delete(device)"><span class='fontawesome-remove b-icon'></span>Delete</button>
+	      <button id='dev-button' ng-click="delete(i)"><span class='fontawesome-remove b-icon'></span>Delete</button>
 	    </div>
   	</div> 
 

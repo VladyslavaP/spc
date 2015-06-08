@@ -10,6 +10,7 @@ angular.module('spcApp')
     });
 
     $scope.goToConfig = function(device) {
+        console.log(device);
         $state.go(device.type, {deviceId: device._id});
     };
 
@@ -17,9 +18,10 @@ angular.module('spcApp')
         $state.go('notifications', {deviceId: device._id});
     };
 
-    $scope.delete = function(device) {
+    $scope.delete = function(i) {
+        var device = $scope.devices[i];
         deviceService.delete(device._id, function() {
-            console.log('how to reload ?????');
+            $scope.devices.splice(i, 1);
         });
     };
 

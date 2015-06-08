@@ -1,0 +1,19 @@
+#gl-img-block {
+	margin-bottom: 10px;
+}
+
+#gl-capture {
+	font-family: 'Gabriela', serif;
+  	font-size: 55px; 
+  	color: #eee;
+  	margin: 20px 0 20px 0;
+}
+
+#gl-img-block button {
+	border: none;
+	width: 123px;
+}
+
+#gl-bt-fb {
+	background: #3b5998;
+}
