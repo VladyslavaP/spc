@@ -12,7 +12,7 @@ var DeviceSchema = new Schema({
   type: String,
   config: {
   	waterModule: {
-  		currentWaterAmount : {type: Number, default: 1000},
+  	currentWaterAmount : {type: Number, default: 1000},
 		minimalWaterAmount : Number, 
 		waterAmountThreshold : Number
   	},
@@ -27,6 +27,7 @@ var DeviceSchema = new Schema({
   	},
   	irrigationModule: {
   		currentWaterAmount: {type: Number, default: 1000},
+      waterAmountThreshold: Number,
 			irrigationFrequency : Number, 
 			waterPortion : Number
   	},
@@ -37,8 +38,9 @@ var DeviceSchema = new Schema({
 
 	sprayingModule : {
 			currentSprayingMaterialAmount : {type: Number, default: 1000},
+      sprayingMaterialAmountThreshold: Number,
 			sprayFrequency : Number, 
-						sprayAmount : Number
+			sprayAmount : Number
   	}
 	}
 });
