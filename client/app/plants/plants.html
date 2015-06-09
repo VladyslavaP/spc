@@ -36,6 +36,9 @@
     <h2>Spray Amount (gm):</h2>
     <input type="number" ng-model="device.config.sprayingModule.sprayAmount" readonly="true"></input>
     <br/>
+    <h2>Minimal spray amount in device (gm):</h2>
+    <input type="number" ng-model="device.config.sprayingModule.sprayingMaterialAmountThreshold" readonly="true"></input>
+    <br/>
     <h1>Irrigation</h1>
     <h2>Irrigation Frequency (per N hrs):</h2>
     <input type="number" ng-model="device.config.irrigationModule.irrigationFrequency" readonly="true"></input>
@@ -43,8 +46,10 @@
     <h2>Water Portion (gm):</h2>
     <input type="number" ng-model="device.config.irrigationModule.waterPortion" readonly="true"></input>
     <br/>
-
-    <h1>Water</h1>          
+    <h2>Minimal water amount in device (gm):</h2>
+    <input type="number" ng-model="device.config.irrigationModule.waterAmountThreshold" readonly="true"></input>
+    <br/>
+    <h1>Lighting</h1>          
     <h2>lighting Frequency (per N hrs):</h2>
     <input type="number" ng-model="device.config.lightingModule.lightingFrequency" readonly="true"></input>
     <br/>
