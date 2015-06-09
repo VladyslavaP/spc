@@ -8,6 +8,10 @@
   float: left;
 }
 
+#dev {
+  margin-bottom: 10px;
+}
+
 #add-device-button {
   border-color: #eee;
   width: 150px;
