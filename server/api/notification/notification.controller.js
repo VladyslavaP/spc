@@ -26,6 +26,7 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Notification.create(req.body, function(err, notification) {
     if(err) { return handleError(res, err); }
+    console.log('added notification');
     return res.json(201, notification);
   });
 };

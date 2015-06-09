@@ -50,11 +50,17 @@ exports.update = function(req, res) {
 };
 
 exports.updateFromString = function(req, res) {
-  var hoho = JSON.parse(req.body.obj);
-  console.log(req.body);
-  console.log(hoho);
-  res.json(200, hoho);
-}
+  var updated = JSON.parse(req.body.obj);
+  Device.findById(updated._id, function(err, device) {
+    if(err) { return handleError(res, err); }
+    if(!device) { return res.send(404); }
+    var upToDate = _.merge(device, updated);
+    device.save(function(err) {
+      if (err) { return handleError(res, err); }
+      return res.json(200, device);
+    });
+  });
+};
 
 // Deletes a device from the DB.
 exports.destroy = function(req, res) {

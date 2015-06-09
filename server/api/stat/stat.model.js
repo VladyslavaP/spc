@@ -6,8 +6,8 @@ var mongoose = require('mongoose'),
 var StatSchema = new Schema({
   deviceId: { type: String, ref: 'Device'},
   time: Date,
-  waterConsumed: { type: Number, default: 0 },
-  foodConsumed: { type: Number, default: 0 }
+  consumed: { type: Number, default: 0 },
+  type: String
 });
 
 module.exports = mongoose.model('Stat', StatSchema);
