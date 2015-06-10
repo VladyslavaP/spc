@@ -63,7 +63,7 @@ exports.getUnreadForDevice = function(req, res) {
     .where('viewed')
     .equals(false)
     .sort('-time')
-    .limit(13)
+    .limit(20)
     .exec(function(err, notifications) {
       if(err) {
         handleError(res, err);
@@ -71,6 +71,17 @@ exports.getUnreadForDevice = function(req, res) {
         res.json(200, notifications);
       }
     }); 
+};
+
+exports.markViewed = function(req, res) {
+  Notification.findById(req.params.id, function(err, notification) {
+    if(err) { return handleError(res, err); }
+    if(!notification) { return res.send(404); }
+    notification.viewed = true;
+    notification.save(function() {
+      res.send(200);
+    });
+  });
 };
 
 exports.getWeekForUser = function(req, res) {

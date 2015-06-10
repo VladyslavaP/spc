@@ -16,10 +16,10 @@
     <br/>
     <br/>
     <p>Food left (gm):&nbsp;&nbsp;</p>
-    <input type="text" readonly="true" value="{{device.config.foodModule.currentFoodAmount}}" id="fl"></input>
+    <input type="text" readonly="true" value="{{device.config.foodModule.currentFoodAmount.toFixed(0)}}" id="fl"></input>
     <br/>
     <p>Water left (gm):</p>
-    <input type="text" value="{{device.config.waterModule.currentWaterAmount}}" readonly="true" id="wl"></input>
+    <input type="text" value="{{device.config.waterModule.currentWaterAmount.toFixed(0)}}" readonly="true" id="wl"></input>
 
 
     <button id='edit-button' type="button"><span class='fontawesome-edit b-icon'></span>Edit</button><br/>

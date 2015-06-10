@@ -12,5 +12,6 @@ router.put('/id/:id', controller.update);
 router.patch('/id/:id', controller.update);
 router.delete('/id/:id', controller.destroy);
 router.get('/unread/:deviceId', controller.getUnreadForDevice);
+router.get('/viewed/:id', controller.markViewed);
 
 module.exports = router;

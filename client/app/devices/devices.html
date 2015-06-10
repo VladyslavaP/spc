@@ -2,6 +2,7 @@
 
 <div id='dev-capture'>
 	<button id='add-device-button' ng-click="addDevice()"><span class='fontawesome-plus b-icon'></span>Add device</button>
+	<button id='add-device-button' ng-click=""><span class='fontawesome-bell-altb-icon'></span>Notifications</button>
   <h1> Your devices:</h1>
   
 </div>  
@@ -21,11 +22,11 @@
 	        {{device.name}}
 	      </h1>
 	      <button id='dev-button' ng-click="goToConfig(device)"><span class='fontawesome-cogs b-icon'></span>Config</button><br/>
-	      <button id='dev-button'><span class='fontawesome-th-list b-icon'></span>Get stats</button>
+	      <button id='dev-button' ng-click="delete(i)"><span class='fontawesome-remove b-icon'></span>Delete</button>
 	      <br/>
 	      <button id='dev-button' ng-click="goToNotifications(device)"><span class='fontawesome-bell-alt b-icon'></span>Notifications</button>
 	      <br/>
-	      <button id='dev-button' ng-click="delete(i)"><span class='fontawesome-remove b-icon'></span>Delete</button>
+  	      <button id='dev-button' ng-show="device.type === 'pets'"><span class='fontawesome-th-list b-icon'></span>Get stats</button>
 	    </div>
   	</div> 
 

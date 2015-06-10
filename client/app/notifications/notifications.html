@@ -1,15 +1,30 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div>
-	<table>
-		<tr>
-			<th>TIME</th>
-			<th>MESSAGE</th>
-		</tr>
-		<tr ng-repeat="notification in notofications">
-			<td>{{notification.time}}</td>
-			<td>{{notification.message}</td>
-			<td nh-show=""><button>Take photo</button></td>
-		</tr>	
-	</table>	
+<div class="container text-center">
+	<div class="col-md-6 col-md-offset-3">
+		<div id='not-capture-block'>
+			<div class="pull-left">
+				<h1 id='not-capture'>Notifications:</h1>
+			</div>
+			<div class="pull-right">
+				<button id='get-photo-btn' ng-show="stillThere">Get photo</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6 col-md-offset-3 table-responsive">
+		<table class="table table-hover table-condensed" id="not-table">
+	      <tr>
+	        <th class="text-center">TIME</th>
+	        <th class="text-center">MESSAGE</th>
+	      </tr> 
+	      <tr ng-repeat='notification in notifications' 
+	      	  ng-class="{'highlighted': !notification.viewed, 'viewed': notification.viewed}" 
+	      	  ng-click="markViewed(notification)">
+	        <td>{{notification.time | date:'dd/MM HH:mm'}}</td>
+	        <td>{{notification.message}}</td>
+	      </tr>
+	    </table>	
+	</div>
 </div>	
+

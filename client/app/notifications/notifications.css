@@ -1,0 +1,33 @@
+#not-capture-block {
+	margin: 20px 0 20px 20px;
+}
+
+#not-capture {
+  font-family: 'Gabriela', serif;
+  font-size: 35px; 
+  color: #eee;
+  margin-bottom: 10px;
+}
+
+#get-photo-btn {
+	margin-top: 5px;
+}
+
+#not-table tr {
+	border-bottom: 2px solid #b6b8ba;
+	border-top: 2px solid #b6b8ba;
+	font-size: 17px;
+}
+
+.highlighted {
+	color: #D477A8;
+}
+
+.viewed {
+	color: black;
+}
+
+#not-table tr th {
+	font-size: 20px;
+	color: #eee;
+}

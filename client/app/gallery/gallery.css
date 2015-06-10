@@ -1,5 +1,11 @@
 #gl-img-block {
 	margin-bottom: 10px;
+	
+}
+
+#gl-img-block img{
+	width: 280px;
+	height: 200px;
 }
 
 #gl-capture {
