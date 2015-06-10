@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('spcApp')
-  .controller('FishesCtrl', function ($scopedeviceService, $stateParams ) {
+  .controller('FishesCtrl', function ($scope, deviceService, $stateParams ) {
       	deviceService.getById($stateParams.deviceId, function(device) {
   		$scope.device = device;
 
