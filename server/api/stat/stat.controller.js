@@ -54,6 +54,21 @@ exports.destroy = function(req, res) {
   });
 };
 
+
+
+exports.getStats = function(req, res) {
+  var dateRange = new Date();
+  dateRange.setDate(dateRange.getDate() - parseInt(req.params.days));
+  Stat
+    .find({ deviceId: req.params.deviceId })
+    .where({ time: { $gt: dateRange }})
+    .exec(function(err, stats) {
+      if(err) { return handleError(res, err); }
+      
+
+    });
+};
+
 function handleError(res, err) {
   return res.send(500, err);
 }
