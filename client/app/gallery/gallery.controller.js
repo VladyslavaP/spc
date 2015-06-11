@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('spcApp')
-  .controller('GalleryCtrl', function ($scope, photoService, _) {
+  .controller('GalleryCtrl', function ($scope, photoService) {
 
   	$scope.photosUrl = [];
 

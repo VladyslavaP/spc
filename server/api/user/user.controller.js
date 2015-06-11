@@ -123,7 +123,7 @@ var getRandomPhoto = function(photos, callback) {
   bucket.listObjects(
    { Bucket: BUCKET_NAME},
    function(err, data) {
-     if (err) { callback() };
+     if (err) { callback() }
      var baseUrl = 'https://' + BUCKET_NAME + '.' + bucket.config.endpoint + '/';
      var relevant = _.chain(data.Contents)
       .map(function(item) { return baseUrl + item.Key; })
