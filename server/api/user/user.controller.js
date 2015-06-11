@@ -117,11 +117,7 @@ exports.removePhoto = function(req, res) {
 
 
 var AWS = require('aws-sdk');
-AWS.config.update({ 
-  accessKeyId: "AKIAIYHMUNQCUDSHQXVA",
-  secretAccessKey: "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",
-  region: "eu-central-1" 
-});
+
 var BUCKET_NAME = 'spc-media';
 var bucket = new AWS.S3({ params: { Bucket: 'BUCKET_NAME'}});
 
