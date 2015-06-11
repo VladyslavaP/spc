@@ -46,7 +46,7 @@ angular.module('spcApp')
             size: 'sm',
         });
         modalInstance.result.then(function (confirmed) {
-            if (!confirmed) return;
+            if (!confirmed) {return; }
             deviceService.delete(device._id, function() {
                 $scope.devices.splice(i, 1);
             });
