@@ -6,6 +6,7 @@ angular.module('spcApp')
   		$http
   			.post('/api/devices', device)
   			.success(function(data) {
+          if(!callback) { return; }
   				callback(data);
   			});
   	};
@@ -14,6 +15,7 @@ angular.module('spcApp')
   		$http
   			.get('/api/devices/user')
   			.success(function(data) {
+          if(!callback) { return; }
   				callback(data);
   			});  		
   	};
@@ -22,6 +24,7 @@ angular.module('spcApp')
       $http
         .get('/api/devices/id/'+deviceId)
         .success(function(data) {
+          if(!callback) { return; }
           callback(data);
         });
     };
@@ -30,17 +33,16 @@ angular.module('spcApp')
       $http
         .post('/api/devices/update/', device)
         .success(function(data) {
+          if(!callback) { return; }
           callback(data);
-        })
-      .success(function() {
-        console.log('haha hoho ololo');
-      })
+        });
     }; 
 
     this.delete = function(deviceId, callback) {
       $http
         .delete('/api/devices/id/'+deviceId)
         .success(function(data) {
+          if(!callback) { return; }
           callback(data);
         });
     };

@@ -10,8 +10,11 @@ angular.module('spcApp')
     });
 
     $scope.goToConfig = function(device) {
-        console.log(device);
         $state.go(device.type, {deviceId: device._id});
+    };
+
+    $scope.goToAllNotifications = function() {
+        $state.go('notifications');
     };
 
     $scope.goToNotifications = function(device) {

@@ -4,6 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var _ = require('lodash');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -105,43 +106,51 @@ exports.getPhotos = function(req, res) {
 };
 
 exports.removePhoto = function(req, res) {
-  _.remove(req.user.photos, function(url) {
-    return url === req.params.url;
-  });
-  req.user.save(function(err) {
+  req.user.update({$pull: {photos: decodeURIComponent(req.params.url)}}, function(err, updated) {
     if(err) res.send(500);
-    res.json(200, req.user.photos);
-  });  
+    res.json(200, updated.photos);
+  });
 };
 
 
 
 var AWS = require('aws-sdk');
+AWS.config.update({ 
+  accessKeyId: "AKIAIG3D72V5WKNJQLWQ",
+  secretAccessKey: "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",
+  region: "eu-central-1" 
+});
 
 var BUCKET_NAME = 'spc-media';
 var bucket = new AWS.S3({ params: { Bucket: 'BUCKET_NAME'}});
 
-var getRandomPhoto = function(callback) {
+var getRandomPhoto = function(photos, callback) {
     
   bucket.listObjects(
    { Bucket: BUCKET_NAME},
    function(err, data) {
      if (err) { callback() };
-     var randomIndex = Math.round(Math.random() * data.Contents.length);
      var baseUrl = 'https://' + BUCKET_NAME + '.' + bucket.config.endpoint + '/';
-     var key = data.Contents[randomIndex].Key;
-     var url = baseUrl + key;
-     callback(url);
+     var relevant = _.chain(data.Contents)
+      .map(function(item) { return baseUrl + item.Key; })
+      .difference(photos)
+      .value();
+     if (relevant.length === 0) return callback(true);
+     var randomIndex = Math.round(Math.random() * relevant.length);
+     var url = relevant[randomIndex];
+     callback(false, url);
    }
  );
 };
 
 exports.addPhoto = function(req, res) {
-  getRandomPhoto(function(url) {
+  getRandomPhoto(req.user.photos, function(err, url) {
+    if(err) return res.send(404);
     req.user.photos.push(url);
-      req.user.save(function(err) {
-     if(err) res.send(500);
+    req.user.save(function(err) {
+      if(err) return res.send(500);
       res.json(200, url);
     }); 
+
   });
 };

@@ -1,17 +1,18 @@
-
-
-
+<div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class=" col-md-6 col-md-offset-3 responsive">
-	<table class="table table-condensed" id="not-table">
-      <tr>
+	<div class="pull-left" id='st-capture'>
+		<h1 id='not-capture'>Statistics:</h1>
+	</div>
+	<table class="table table-condensed" id="stat-table">
+      <tr >
       	<th class="text-center"></th>
         <th class="text-center">Day</th>
         <th class="text-center">Week</th>
         <th class="text-center">Month</th>
       </tr> 
       <tr>
-      	<td>
+      	<td id="n">
       		Food:
       	</td>	
       </tr>
@@ -46,7 +47,7 @@
         <td>{{monthStats.food.averagePortionPerDay.toFixed(2)}}</td>
       </tr>
       <tr>
-	  	<td>
+	  	<td id="n">
 	  		Water:
 	  	</td>	
       </tr>

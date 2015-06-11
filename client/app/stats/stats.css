@@ -1,0 +1,22 @@
+#stat-table tr {
+	border-bottom: 2px solid #b6b8ba;
+	border-top: 2px solid #b6b8ba;
+	font-size: 19px;
+	text-align: center;
+	color: black;
+}
+
+#stat-table tr th {
+	color: #eee;
+}
+
+#n {
+	text-align: left;
+	font-size: 21px;
+	text-decoration: underline;;
+	color: #eee;
+}
+
+#st-capture {
+	margin-top: 20px;
+}

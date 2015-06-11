@@ -4,7 +4,7 @@ angular.module('spcApp')
   .service('photoService', function ($http) {
   	this.getPhotos = function(callback) {
 	  	$http
-		    .get('/api/users/all')
+		    .get('/api/users/photos/all')
 		    .success(function(data) {
 		    	console.log(data);
 		    	if(!callback) { return; }
@@ -12,9 +12,9 @@ angular.module('spcApp')
 		});
 	};
 
-  	this.deletePhoto = function(url, callback) {
+  	this.removePhoto = function(url, callback) {
 	  	$http
-		    .get('/api/users/photos/remove/'+url)
+		    .get('/api/users/photos/remove/'+ encodeURIComponent(url))
 		    .success(function(data) {
 		    	console.log(data);
 		    	if(!callback) { return; }

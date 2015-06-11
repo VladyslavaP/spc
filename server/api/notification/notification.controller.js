@@ -58,12 +58,15 @@ exports.destroy = function(req, res) {
 };
 
 exports.getUnreadForDevice = function(req, res) {
+  var date = new Date();
+  date.setSeconds(0 - date.getMinutes()*60 - date.getHours()*60*60);
   Notification
     .find({deviceId: mongoose.Types.ObjectId(req.params.deviceId)})
+    .where('time')
+    .gt(date)
     .where('viewed')
     .equals(false)
     .sort('-time')
-    .limit(20)
     .exec(function(err, notifications) {
       if(err) {
         handleError(res, err);
@@ -84,32 +87,31 @@ exports.markViewed = function(req, res) {
   });
 };
 
-exports.getWeekForUser = function(req, res) {
+exports.getAllTodayForUser = function(req, res) {
   Device.find(
-    { userID: req.user._id},
+    { userId: req.user._id},
     function(err, devices) {
       if(err) {
         handleError(res, err);
       } else {
         var devIds = _.pluck(devices, '_id');
-        var dateRange = new Date();
-        dateRange.setDate(dateRange.getDate() - 7);
+        var date = new Date();
+        date.setSeconds(0 - date.getMinutes()*60 - date.getHours()*60*60);
         Notification
           .find({ 
-            time : { $gt : dateRange }
+            time : { $gt : date }
           })
           .where('deviceId')
           .in(devIds)
+          .where('viewed')
+          .equals(false)
           .sort('-date')
           .exec(function (err, notifications) {
             if(err) {
               handleError(res, err);
             } else {
-              var grouped = _.groupBy(notifications, function(n) {
-                return n.deviceId;
-            });
-            res.status(200).json(grouped);
-          }
+              res.json(200, notifications);
+            }
         });
       }
     }
