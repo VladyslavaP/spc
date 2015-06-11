@@ -24,16 +24,16 @@ angular.module('spcApp')
 
     $scope.slides = [
       {
-        image: 'assets/images/slide1.png'
+        image: 'assets/images/slide1.jpg'
       },
       {
-        image: 'assets/images/slide2.png'
+        image: 'assets/images/slide2.jpg'
       },
       {
-        image: 'assets/images/slide3.png'
+        image: 'assets/images/slide3.jpg'
       },      
       {
-        image: 'assets/images/slide4.png'
+        image: 'assets/images/slide4.jpg'
       }
     ];
   });

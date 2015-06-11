@@ -1,7 +1,3 @@
-[class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
-}
-
 .b-icon {
   float: left;
 }
@@ -94,3 +90,8 @@
   width: 90px;
   height: 25px;
 }
+
+/*[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+*/
