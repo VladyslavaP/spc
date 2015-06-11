@@ -27,8 +27,29 @@ angular.module('spcApp')
 
     $scope.delete = function(i) {
         var device = $scope.devices[i];
-        deviceService.delete(device._id, function() {
-            $scope.devices.splice(i, 1);
+
+        var modalInstance = $modal.open({
+            animation: true,
+            template:   [
+                        '<div id="popup">',
+                        '   <div>',
+                        '       <h3 id="add-device-header">Delete?</h3>',
+                        '   </div>',
+                        '   <div id="add-device-footer">',
+                        '       <button ng-click="delete()">OK</button>',
+                        '       <button ng-click="cancel()">Cancel</button>',
+                        '   </div>',
+                        '</div>'
+                        ].join(''),
+
+            controller: 'DeletePopupCtrl',
+            size: 'sm',
+        });
+        modalInstance.result.then(function (confirmed) {
+            if (!confirmed) return;
+            deviceService.delete(device._id, function() {
+                $scope.devices.splice(i, 1);
+            });
         });
     };
 
