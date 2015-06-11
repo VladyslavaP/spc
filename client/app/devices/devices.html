@@ -21,12 +21,12 @@
 	      <h1>
 	        {{device.name}}
 	      </h1>
-	      <button id='dev-button' ng-click="goToConfig(device)"><span class='fontawesome-cogs b-icon'></span>Config</button><br/>
-	      <button id='dev-button' ng-click="delete(i)"><span class='fontawesome-remove b-icon'></span>Delete</button>
+	      <button id='dev-button' ng-click="goToConfig(device)"><span class='glyphicon glyphicon-cog b-icon'></span>Config</button><br/>
+	      <button id='dev-button' ng-click="delete(i)"><span class='glyphicon glyphicon-remove b-icon'></span>Delete</button>
 	      <br/>
-	      <button id='dev-button' ng-click="goToNotifications(device)"><span class='fontawesome-bell-alt b-icon'></span>Notifications</button>
+	      <button id='dev-button' ng-click="goToNotifications(device)"><span class='glyphicon glyphicon-bell b-icon'></span>Notifications</button>
 	      <br/>
-  	      <button id='dev-button' ng-show="device.type === 'pets'" ng-click="goToStats(device)"><span class='fontawesome-th-list b-icon'></span>Get stats</button>
+  	      <button id='dev-button' ng-show="device.type === 'pets'" ng-click="goToStats(device)"><span class='glyphicon glyphicon-list-alt b-icon'></span>Get stats</button>
 	    </div>
   	</div> 
 
