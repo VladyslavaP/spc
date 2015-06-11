@@ -18,6 +18,10 @@ angular.module('spcApp')
         $state.go('notifications', {deviceId: device._id});
     };
 
+    $scope.goToStats = function(device) {
+        $state.go('stats', {deviceId: device._id});
+    };
+
     $scope.delete = function(i) {
         var device = $scope.devices[i];
         deviceService.delete(device._id, function() {

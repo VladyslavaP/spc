@@ -99,3 +99,25 @@ exports.me = function(req, res, next) {
 exports.authCallback = function(req, res, next) {
   res.redirect('/');
 };
+
+exports.getPhotos = function(req, res) {
+  res.json(200, req.user.photos);
+};
+
+exports.removePhoto = function(req, res) {
+  _.remove(req.user.photos, function(url) {
+    return url === req.params.url;
+  });
+  req.user.save(function(err) {
+    if(err) res.send(500);
+    res.json(200, req.user.photos);
+  });  
+};
+
+exports.addPhoto = function(req, res) {
+  req.user.photos.push(req.params.url);
+  req.user.save(function(err) {
+    if(err) res.send(500);
+    res.json(200, req.user.photos);
+  });  
+};

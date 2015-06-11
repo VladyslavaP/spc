@@ -5,10 +5,6 @@ module.exports = function(stats) {
 	this.foodStats = _.where(stats, {type: 'food'});
 	this.waterStats = _.where(stats, {type: 'water'});
 
-	console.log(this.stats.length);
-	console.log(this.foodStats.length);
-	console.log(this.waterStats.length);
-
 	this.waterEntries = function() {
 		return this.waterStats.length;
 	};
