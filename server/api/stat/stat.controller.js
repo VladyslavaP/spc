@@ -1,7 +1,9 @@
 'use strict';
 
 var _ = require('lodash');
+var mongoose = require('mongoose');
 var Stat = require('./stat.model');
+var Analyzer = require('./stat.analyzer.js');
 
 // Get list of stats
 exports.index = function(req, res) {
@@ -58,14 +60,13 @@ exports.destroy = function(req, res) {
 
 exports.getStats = function(req, res) {
   var dateRange = new Date();
-  dateRange.setDate(dateRange.getDate() - parseInt(req.params.days));
+  dateRange.setDate(dateRange.getDate() - parseInt(req.query.days));
   Stat
-    .find({ deviceId: req.params.deviceId })
+    .find({ deviceId: mongoose.Types.ObjectId(req.query.deviceId) })
     .where({ time: { $gt: dateRange }})
     .exec(function(err, stats) {
       if(err) { return handleError(res, err); }
-      
-
+      res.json(201, new Analyzer(stats).all());
     });
 };
 
