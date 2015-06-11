@@ -1,2 +1,8 @@
 core.autocrlf=true
-* text eol=lf
+*
+core.eol=native
+
+*.jpg binary
+*.png binary
+
+* text auto
