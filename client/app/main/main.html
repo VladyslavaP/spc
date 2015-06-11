@@ -1,8 +1,8 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="row">
-	<div class="center-block" id="slider">
-	  <carousel interval="interval">
+	<div class="center-block" id='slider'>
+	  <carousel interval="interval" id='sliders'>
 	    <slide ng-repeat="slide in slides" active="slide.active">
 	      <img ng-src="{{slide.image}}" id='img'>
 	    </slide>
