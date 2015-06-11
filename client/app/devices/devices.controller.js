@@ -44,6 +44,7 @@ angular.module('spcApp')
 			            '	<div id="add-device-body">',
 			            '		<p>Device name: </p>',
 			            '		<input placeholder="Device name" ng-model="newDevice.name"/>',
+                        '       <br/>',
                         '       <p>Device for: </p>',
                         '       <select ng-model="newDevice.type">',
                         '           <option value="pets" selected>Pets</option>',

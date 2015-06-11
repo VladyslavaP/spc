@@ -1,21 +1,28 @@
 #nav-buttons {
-  float: right;
-  margin: 105px 5px 0px 0px;
-  border: none;
-  width: 100px;
-  height: 30px;
-}
-
-#icon {
-  float: left; 
-  margin-left: 40px;
-}
-
-#header{
-  margin-left: 120px;
-}
-
-#sign {
+ font-size: 14px;
+  line-height: 1.5em;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #ea4c88;
   color: #eee;
-  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #eee;
+  font-family: 'FontAwesome', sans-serif;
+}
+
+#nav-buttons:hover {
+  background-color: #d44179;
+}
+
+#brand-name {
+  color: #ea4c88;
+  font-family: 'Gabriela', serif;
+  font-size: 36px; 
+}
+
+#brand-img {
+  margin-top: -8px;
 }
