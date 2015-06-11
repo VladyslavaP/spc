@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('spcApp')
-  .controller('NotificationsCtrl', function ($scope, notificationService, $stateParams, _) {
+  .controller('NotificationsCtrl', function ($scope, notificationService, $stateParams, _, photoService) {
 
   	$scope.notifications = [];
 
@@ -26,6 +26,11 @@ angular.module('spcApp')
 		}
   	});   
 
+    $scope.addPhoto = function() {
+      photoService.addPhoto(function(url) {
+        console.log(url);
+      });
+    }
 
   	$scope.markViewed = function(notification) {
         if (notification.viewed) { return; }

@@ -14,7 +14,7 @@ angular.module('spcApp')
 
   	this.deletePhoto = function(url, callback) {
 	  	$http
-		    .get('/api/users/remove/'+url)
+		    .get('/api/users/photos/remove/'+url)
 		    .success(function(data) {
 		    	console.log(data);
 		    	if(!callback) { return; }
@@ -22,14 +22,14 @@ angular.module('spcApp')
 		});
 	};	
 
-  	this.addPhoto = function(url, callback) {
+  this.addPhoto = function(url, callback) {
 	  	$http
-		    .get('/api/users/add/'+url)
+		    .get('/api/users/photos/add')
 		    .success(function(data) {
 		    	console.log(data);
 		    	if(!callback) { return; }
 		      	callback(data);
 		});
-	}	
+	};	
 
   });

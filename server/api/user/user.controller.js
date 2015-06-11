@@ -114,10 +114,38 @@ exports.removePhoto = function(req, res) {
   });  
 };
 
+
+
+var AWS = require('aws-sdk');
+AWS.config.update({ 
+  accessKeyId: "AKIAIYHMUNQCUDSHQXVA",
+  secretAccessKey: "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",
+  region: "eu-central-1" 
+});
+var BUCKET_NAME = 'spc-media';
+var bucket = new AWS.S3({ params: { Bucket: 'BUCKET_NAME'}});
+
+var getRandomPhoto = function(callback) {
+    
+  bucket.listObjects(
+   { Bucket: BUCKET_NAME},
+   function(err, data) {
+     if (err) { callback() };
+     var randomIndex = Math.round(Math.random() * data.Contents.length);
+     var baseUrl = 'https://' + BUCKET_NAME + '.' + bucket.config.endpoint + '/';
+     var key = data.Contents[randomIndex].Key;
+     var url = baseUrl + key;
+     callback(url);
+   }
+ );
+};
+
 exports.addPhoto = function(req, res) {
-  req.user.photos.push(req.params.url);
-  req.user.save(function(err) {
-    if(err) res.send(500);
-    res.json(200, req.user.photos);
-  });  
+  getRandomPhoto(function(url) {
+    req.user.photos.push(url);
+      req.user.save(function(err) {
+     if(err) res.send(500);
+      res.json(200, url);
+    }); 
+  });
 };
